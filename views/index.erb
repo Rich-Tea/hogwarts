@@ -1,0 +1,19 @@
+<h1>Students</h1>
+<h3>
+    <% for student in @students %>
+      <ul>
+        Name: <%= student.first_name %> <%= student.last_name %>
+      </ul>
+      <ul>
+        House: <%= student.house %>
+      </ul>
+      <ul>
+        Age: <%= student.age %>
+      </ul>
+      <ul>
+        <% desired_house = House.find_by_id(student.house_id.to_i)[0] %>
+        <img src="<%= desired_house.logo_url %>" alt="house_logo" height="110px" width="100px">
+      </ul>
+      <hr>
+    <% end %>
+</h3>
